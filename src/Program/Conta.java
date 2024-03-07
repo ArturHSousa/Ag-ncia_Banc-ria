@@ -40,13 +40,44 @@ public class Conta {
         this.saldo = saldo;
     }
 
-    public String toString(){
-        return  "\nNúmero da Conta: " + this.numeroConta +
-                "\nNome: "  + this.user.getNome() +
-                "\nCPF: "   + this.user.getCPF()+
+    public String toString() {
+        return "\nNúmero da Conta: " + this.numeroConta +
+                "\nNome: " + this.user.getNome() +
+                "\nCPF: " + this.user.getCPF() +
                 "\nEmail: " + this.user.getEmail() +
                 "\nSaldo: " + Utils.doubleString(this.getSaldo()) +
                 "\n";
 
+    }
+
+    public void depositar(Double deposito) {
+        if (deposito > 0) {
+            setSaldo(getSaldo() + deposito);
+            System.out.println("Seu depósito foi realizado com sucesso!");
+        } else {
+            System.out.println("Não foi possivel realizar o seu depósito!");
+        }
+    }
+
+    public void sacar(Double saque) {
+        if (saque > 0 && this.getSaldo() >= saque){
+            setSaldo(getSaldo() - saque);
+            System.out.println("Seu saque foi realizado com sucesso!");
+        }
+        else{
+            System.out.println("Não foi possivel realizar o seu saque!");
+        }
+    }
+
+    public void trasferir(Conta ContaDepositada, Double trasferencia){
+        if(trasferencia > 0 && this.getSaldo() >= trasferencia){
+            setSaldo(getSaldo() - trasferencia);
+
+            ContaDepositada.saldo = ContaDepositada.getSaldo() + trasferencia;
+            System.out.println("Sua trasferencia foi realizado com sucesso!");
+        }
+        else{
+            System.out.println("Não foi possivel realizar o sua trasferencia");
+        }
     }
 }
