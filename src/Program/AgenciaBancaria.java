@@ -55,4 +55,26 @@ public class AgenciaBancaria {
 
     }
 
+    public static void CriarConta() {
+
+        System.out.println("\nNome: ");
+        String nome1 = sc.next();
+
+        System.out.println("\nCPF: ");
+        String CPF1 = sc.next();
+
+        System.out.println("\nemail: ");
+        String email1 = sc.next();
+
+        User cliente = new User(nome1, CPF1, email1); //Instancia a classe "User" dentro da classe "CriarConta" para Assimilar as Strings nome, CPF e email da User para essa
+
+        Conta conta = new Conta(cliente);
+
+        contasBancarias.add(conta);
+
+        System.out.println("Sua Conta criada do sucesso!");
+
+        operacoes();
+    }
+
 }
