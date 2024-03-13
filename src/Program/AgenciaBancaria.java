@@ -72,9 +72,21 @@ public class AgenciaBancaria {
 
         contasBancarias.add(conta);
 
-        System.out.println("Sua Conta criada do sucesso!");
+        System.out.println("Sua conta foi criada com sucesso!");
 
         operacoes();
     }
 
+    //Encontrar conta do tipo "Conta" da classe Conta
+    public static Conta encontrarConta(int numeroConta){
+        Conta conta = null;
+        if(contasBancarias.size() > 0){ //Verifica se a contas bancarias
+            for(Conta c : contasBancarias){ //Instanciando a conta,   expressao  "c : contasBancarias"  refaz esse "for" para cada conta dentro de "contasBancarias"
+                if(c.getNumeroConta() == numeroConta){ //se a conta for igual ao numero da conta digitada
+                    conta = c;
+                }
+            }
+        }
+        return conta;
+    }
 }
