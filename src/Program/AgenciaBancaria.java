@@ -107,4 +107,23 @@ public class AgenciaBancaria {
         }
         operacoes();
     }
+
+    public static void sacar() {
+        System.out.println("Número da conta: ");
+        int numeroDaConta = sc.nextInt();
+
+        Conta conta = encontrarConta(numeroDaConta);
+
+        if(conta != null){
+            System.out.println("Qual valor deseja sacar? ");
+            Double valorSaque = sc.nextDouble();
+            conta.sacar(valorSaque);
+            System.out.println("Valor sacado com sucesso! ");
+        }
+        else{
+            System.out.println(" Conta não encontrada! ");
+        }
+        operacoes();
+    }
+
 }
