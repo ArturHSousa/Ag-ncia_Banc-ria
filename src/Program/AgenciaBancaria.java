@@ -126,4 +126,24 @@ public class AgenciaBancaria {
         operacoes();
     }
 
+    public static void trasferir(){
+        System.out.println("Número da conta do remetente: ");
+        int numeroContaRemetente = sc.nextInt();
+
+        Conta contaRemetente = encontrarConta(numeroContaRemetente);
+
+        if(contaRemetente != null) {
+            System.out.println("Número da conta do destinatário: ");
+            int numeroContaDestinatario = sc.nextInt();
+            Conta contaDestinatario = encontrarConta(numeroContaDestinatario);
+
+            if (contaDestinatario != null) {
+                System.out.println("Valor da trasferência: ");
+                Double valor = sc.nextDouble();
+
+                contaRemetente.trasferir(contaDestinatario, valor);
+            }
+        }
+        operacoes();
+    }
 }
