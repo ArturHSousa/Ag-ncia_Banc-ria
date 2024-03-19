@@ -1,5 +1,7 @@
 package Program;
 
+import Util.Utils;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -43,7 +45,7 @@ public class AgenciaBancaria {
                 trasferir();
                 break;
             case 5:
-                listar();
+                listarContas();
                 break;
             case 6:
                 System.out.println("Obrigado por acessar nossa agência!");
@@ -118,7 +120,6 @@ public class AgenciaBancaria {
             System.out.println("Qual valor deseja sacar? ");
             Double valorSaque = sc.nextDouble();
             conta.sacar(valorSaque);
-            System.out.println("Valor sacado com sucesso! ");
         }
         else{
             System.out.println(" Conta não encontrada! ");
@@ -143,6 +144,24 @@ public class AgenciaBancaria {
 
                 contaRemetente.trasferir(contaDestinatario, valor);
             }
+            else {
+                System.out.println("A conta para depósito não foi encontrada!");
+            }
+        }
+        else {
+            System.out.println("Conta para trasferência não encontrada!");
+        }
+        operacoes();
+    }
+
+    public static void listarContas(){
+        if(contasBancarias.size() > 0){
+            for(Conta conta: contasBancarias){
+                System.out.println(conta);
+            }
+        }
+        else {
+            System.out.println("Não há contas cadastradas!");
         }
         operacoes();
     }

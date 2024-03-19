@@ -10,4 +10,5 @@ public class Utils {
     public static String doubleString(Double valor){
         return format.format(valor);
     }
+
 }
